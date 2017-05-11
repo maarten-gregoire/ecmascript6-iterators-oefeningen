@@ -1,0 +1,40 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+</head>
+<body>
+	<ul id="lijst">
+	</ul>
+	<script>
+		// Deze code moet de 5 dieren in de array tonen in een lijst.
+		// Maak 3 aanpassingen zodat de code werkt. Gebruik geen for-of loop.
+
+		let dieren = ["konijn", "eekhoorn", "aye-aye", "alpaca", "vleermuis"];
+		
+		let generatorObject = {
+			createIterator: function *(items){
+				for (let i = 0; i < items.length; i++){
+					yield items[i];
+				}
+			}
+		}
+	  
+		let iterator = generatorObject.createIterator(dieren);
+		
+		let lijst = document.getElementById("lijst");
+		
+		for (i = 0; i < 5; i++) {
+			let dier = iterator.next().value;
+			voegItemToeAanLijst(dier, lijst);
+		}
+		
+		 function voegItemToeAanLijst(item, lijst){
+			let lijstItem = document.createElement("li");
+			let textNode = document.createTextNode(item);
+			lijstItem.appendChild(textNode);
+			lijst.appendChild(lijstItem);
+		}
+	
+	</script>
+</body>
+</html>

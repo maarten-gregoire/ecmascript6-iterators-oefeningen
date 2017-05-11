@@ -1,0 +1,30 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+</head>
+<body>
+	<ul id="lijst">
+	</ul>
+	<script>
+		// Deze code moet enkel de rollen uit het spel Machiavelli tonen in een lijst.
+		// Maak van de for-of loop een do while loop, pas de code hierin aan en voeg boven de loop 1 lijn toe om dit te bereiken. Gebruik een iterator.
+	
+		let machiavelliRollen = ["moordenaar", "keukenhulp", "dief", "landbouwer", "magiër", "loodgieter", "koning", "fruitplukker", "prediker", "piraat", "koopman", "imker", "bouwmeester", "krantenjongen", "condottiere"];
+		let iterator = machiavelliRollen[Symbol.iterator]();
+		let lijst = document.getElementById("lijst");
+		
+		do {
+			voegItemToeAanLijst(iterator.next().value, lijst);
+		} while(iterator.next().done === false)
+		
+		function voegItemToeAanLijst(item, lijst){
+			let lijstItem = document.createElement("li");
+			let textNode = document.createTextNode(item);
+			lijstItem.appendChild(textNode);
+			lijst.appendChild(lijstItem);
+		}
+	
+	</script>
+</body>
+</html>

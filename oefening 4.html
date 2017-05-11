@@ -1,0 +1,25 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+</head>
+<body>
+	<ul id="lijst">
+	</ul>
+	<script>
+		
+		let lijst = document.getElementById("lijst");
+		let colors = ["red", "green", "blue"]; // pas deze lijn aan om de kleuren in de lijst te tonen
+		for (let value of colors.values()) {
+			voegItemToeAanLijst(value, lijst);
+		}
+		
+		function voegItemToeAanLijst(item, lijst){
+			let lijstItem = document.createElement("li");
+			let textNode = document.createTextNode(item);
+			lijstItem.appendChild(textNode);
+			lijst.appendChild(lijstItem);
+		}
+	</script>
+</body>
+</html>

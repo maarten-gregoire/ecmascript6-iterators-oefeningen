@@ -1,0 +1,42 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+</head>
+<body>
+	<ul id="lijst">
+	</ul>
+	<script>		
+		let lijst = document.getElementById("lijst");
+		
+		function *createDierIterator() {
+			yield "Eekhoorn";
+			yield "Gordeldier";
+			return 5;
+		}
+		
+		function *createNogEenDierIterator(count) {
+			for (i=0; i < count; i++){
+				yield "nog een dier";
+			}
+		}
+		
+		function *createCombinedIterator() {
+		// schijf hier 2 lijnen om de items eekhoorn en gordeldier te tonen in de lijst, gevolgd door 3 keer de tekst "nog een dier"
+		}
+		
+		var iterator = createCombinedIterator();
+		
+		for (i = 0; i < 5; i ++) {
+			voegItemToeAanLijst(iterator.next().value, lijst);
+		}
+		
+		function voegItemToeAanLijst(item, lijst){
+			let lijstItem = document.createElement("li");
+			let textNode = document.createTextNode(item);
+			lijstItem.appendChild(textNode);
+			lijst.appendChild(lijstItem);
+		}
+	</script>
+</body>
+</html>

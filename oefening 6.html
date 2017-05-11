@@ -1,0 +1,36 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+</head>
+<body>
+	<ul id="lijst">
+	</ul>
+	<script>
+		// Pas de volgende nummers aan zodat de getallen in de lijst 1, 20 en 30 zijn.
+		let nummer1 = 2;
+		let nummer2 = 1;
+		let nummer3 = 2;
+		
+		let lijst = document.getElementById("lijst");
+		
+		function *createIterator() {
+			let first = yield 1;
+			let second = yield first + 2;
+			let third = yield second + 2;
+		}
+		let iterator = createIterator();
+		
+		voegItemToeAanLijst(iterator.next(nummer1).value, lijst);
+		voegItemToeAanLijst(iterator.next(nummer2).value, lijst);
+		voegItemToeAanLijst(iterator.next(nummer3).value, lijst);
+		
+		function voegItemToeAanLijst(item, lijst){
+			let lijstItem = document.createElement("li");
+			let textNode = document.createTextNode(item);
+			lijstItem.appendChild(textNode);
+			lijst.appendChild(lijstItem);
+		}
+	</script>
+</body>
+</html>

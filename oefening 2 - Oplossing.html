@@ -1,0 +1,28 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+</head>
+<body>
+	<ul id="lijst">
+	</ul>
+	<script>
+		// Gebruik een for-of loop om de machiavellirollen te tonen in een lijst.
+	
+		let machiavelliRollen = ["moordenaar", "dief", "magiër", "koning", "prediker", "koopman", "bouwmeester", "condottiere"];
+		let lijst = document.getElementById("lijst");
+		
+		for (let rol of machiavelliRollen){
+			voegItemToeAanLijst(rol, lijst);
+		}
+		
+		function voegItemToeAanLijst(item, lijst){
+			let lijstItem = document.createElement("li");
+			let textNode = document.createTextNode(item);
+			lijstItem.appendChild(textNode);
+			lijst.appendChild(lijstItem);
+		}
+	
+	</script>
+</body>
+</html>
